@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Science Meusum app</title>
+    </head>
+	<style>
+	.background
+	{
+		position: sticky;
+		top: 0px;
+		left: 0px;
+	}
+	.gif
+	{
+		position: absolute;
+		top: 305px;
+		left: 40px;
+	}
+	</style>
+    <body>
+        <h1 id="documentTitle">Science Meusum app</h1>
+        <p id="documentMetadata">Exported at: Tue Apr 16 2019 06:37:11 GMT-0700 (PDT)</p>
+        <h2>Museum of Science</h2>
+        <img id= "myImage" src="images/entrance.png" width="320" height="700" usemap="#map_menu" class="background">
+		<img id= "mygif" src="images/desktop_pc.jpg" width="0" height="0" class="gif">
+        <map name="map_menu">
+         <area id = "myArea1" shape="rect" coords="1,429,321,473" onclick= "ChangeImage(areaOnclick[page])"/>
+         <area id = "myArea2" shape="rect" coords="0,0,0,0" onclick= "ChangeImage(areaOnclick2[page])" />
+         <area id = "myArea3" shape="rect" coords="0,0,0,0" onclick= "ChangeImage(areaOnclick3[page])" />
+        </map>
+    <script>
+    var page = 0;
+    var ImageList = ["images/entrance.png", "images/menu.png", "images/test_of_friction.png","images/flow_of_electrons.png","images/law_of_inerta.png"];
+	var GifList = ["images/desktop_pc.jpg", "images/desktop_pc.jpg", "images/Swinging-Pengulum.gif","images/electrons law.gif","images/inerta ball.gif"];
+    var areaCoorList = ["1,429,321,473","0,0,0,0","0,0,0,0","87,205,233,278","87,346,233,419","87,490,233,563","259,613,309,643","0,0,0,0","0,0,0,0","259,613,309,643","0,0,0,0","0,0,0,0","259,613,309,643","0,0,0,0","0,0,0,0"];
+	var gifWidthList = ["0","0","255","255","255"];
+	var gifHeightList = ["0","0","275","275","275"];
+     var areaOnclick = [1, 2, 1, 1, 1];
+     var areaOnclick2 = [5, 3, 5, 5, 5];
+     var areaOnclick3 = [5, 4, 5, 5, 5];
+     var areaIdLoop = ["myArea1","myArea2","myArea3"];
+    function ChangeImage(int)
+    {     
+      page = int;
+      var intarraynum = int;
+      var intloop = 0;
+      var image1 = document.getElementById("myImage");
+	  var gif1 = document.getElementById("mygif");
+      image1.src = ImageList[int];
+	  gif1.src = GifList[int];
+	  gif1.width = gifWidthList[int];
+	  gif1.height = gifHeightList[int];
+      var int2 = intarraynum*3;   
+     while (intloop < 3) 
+    {       
+       var area1 = document.getElementById(areaIdLoop[intloop]);
+       area1.coords = areaCoorList[int2];
+       intloop +=1;
+       int2 +=1;
+    }   
+    }
+    </script>
+    </body>
+</html>
